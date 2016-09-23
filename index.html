@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Pokeball Challenge">
     <meta name="author" content="Eliot Winchell">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Pokeball Challenge</title>
 
@@ -27,60 +26,49 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="">Pokeball Challenge</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <div class="jumbotron container-main">
+      <div class="container-heading">
+          <img class="img-background" src="img/background.png"/>
       </div>
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h1 class="heading-challenge">The Pokeball Challenge for Minecraft!</h1>
+      <h4 class="subheader-challenge">Your challenge is to construct a pokeball with JavaScript with loops. You are to use the Drone plugin which is explained below.</h4>
+      <div class="main-tutorial">
+        <div class="module">
+           <h3 class="module-title">The Drone Plugin</h3>
+           <p class="module-text">This portion of ScriptCraft lets you build blocks in Minecraft with Javascript code! It's awesome because it has super handy methods for placing blocks and you can use loops to repeat the process! You can code the first story of a building, and then place a loop around that to make a skyscraper and then a loop around that will create a city!</p>
+           <br>
+           <p class="module-text">First we need to construct a Drone Object. It's best to think of a Drone Object as an invisible block in Minecraft which lets you add code to manipulate it. This piece of code creates a Drone object and when it's called, it will create an invisible block two blocks in front of you.</p>  
+
+           <pre>var droneObject = new Drone(self);</pre>
+           <p class="module-text">Now, what happens if we add <code>.box(blocks.diamond_ore)</code> to the end of that variable?</p>
+           <img class="module-image" src="img/diamondblock.png"/>
+           <pre>/js var droneObject = newDrone(self).box(blocks.diamond_ore);</pre>
+           <br>
+           <p class="module-text">The box method accepts 1 argument, but you can also give it a width, height, and length! <code>.box(blocks.BLOCK, w, h, l);</code>
+           <img class="module-image" src="img/diamondwall.png"/>    
+           <pre>/js var droneObject = newDrone(self).box(blocks.diamond_ore, 4, 10, 2);</pre>
+           <br>
+           <h3 class="module-title">Making Stuff Move</h3>
+           <p class="module-text">Now it's time to make stuff move.</p>
+           
+           <br>
+            
         </div>
       </div>
-
-      <hr>
 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
