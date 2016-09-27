@@ -17,7 +17,6 @@
 
     <!-- Styles for base.css -->
     <link href="css/main.css" rel="stylesheet">
-
   </head>
 
   <body>
@@ -28,7 +27,7 @@
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">Pokeball Challenge</a>
+         <a class="navbar-brand" href="">Pokeball Challenge</a>
         </div>
       </div>
     </nav>
@@ -52,22 +51,30 @@
            <pre>var droneObject = new Drone(self);</pre>
            <p class="module-text">Now, what happens if we add <code>.box(blocks.diamond_ore)</code> to the end of that variable?</p>
            <img class="module-image" src="img/diamondblock.png"/>
-           <pre>/js var droneObject = newDrone(self).box(blocks.diamond_ore);</pre>
+           <pre>/js var droneObject = new Drone(self).<strong>box(blocks.diamond_ore);</strong></pre>
            <br>
            <p class="module-text">The box method accepts 1 argument, but you can also give it a width, height, and length! <code>.box(blocks.BLOCK, w, h, l);</code>
            <img class="module-image" src="img/diamondwall.png"/>    
-           <pre>/js var droneObject = newDrone(self).box(blocks.diamond_ore, 4, 10, 2);</pre>
+           <pre>/js var droneObject = new Drone(self).box(blocks.diamond_ore,<strong> 4, 10, 2</strong>);</pre>
            <br>
            <h3 class="module-title">Making Stuff Move</h3>
-           <p class="module-text">Now it's time to make stuff move.</p>
+           <p class="module-text">Now it's time to make stuff move. We can add <pre>.up()<br>.down()<br>.left()<br>.right()<br>.fwd()<br>.back()<br>.turn()</pre> to our drone object to move the location of it. We're basically moving the reference point! You can put a number larger than 1 in the parentheses to make the reference block move farther but the default is 1. The <code>.turn()</code> method turns our reference point 90 degrees clockwise!</p>
+           <img class="module-image" src="img/move.png"/>
+           <pre>/js var droneObject = new Drone(self).box(blocks.diamond_ore);<br>/js droneObject<strong>.fwd(2)</strong>.box(blocks.emerald_ore);</pre> 
+           <br> 
+           <h3 class="module-title">The Cylinder Method</h3>
+           <p class="module-text">The Cylinder method allows us to easily make cylinders. <code>.cylinder(blocks.BLOCK, radius, height);</code>
+           <br><br>
+           <img class="module-image" src="img/cylinder.png"/>
+           <pre>/js var droneObject = new Drone(self)<strong>.cylinder(blocks.ice, 7, 1);</strong></pre>
            
            <br>
-            
+           <h3 class="module-title">The For Loop</h3>
+           <p class="module-text">The For loop allows us to loop a limited number of times.</p>
         </div>
       </div>
 
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
   </body>
