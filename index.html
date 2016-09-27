@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pokeball Challenge">
+    <meta name="author" content="Eliot Winchell">
+
+    <title>Pokeball Challenge</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Styles for this template -->
+    <link href="css/jumbotron.css" rel="stylesheet">
+
+    <!-- Styles for base.css -->
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="">Pokeball Challenge</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron container-main">
+      <div class="container-heading">
+          <img class="img-background" src="img/background.png"/>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 class="heading-challenge">The Pokeball Challenge for Minecraft!</h1>
+      <h4 class="subheader-challenge">Your challenge is to construct a pokeball with JavaScript with loops. You are to use the Drone plugin which is explained below.</h4>
+      <div class="main-tutorial">
+        <div class="module">
+           <h3 class="module-title">The Drone Plugin</h3>
+           <p class="module-text">This portion of ScriptCraft lets you build blocks in Minecraft with Javascript code! It's awesome because it has super handy methods for placing blocks and you can use loops to repeat the process! You can code the first story of a building, and then place a loop around that to make a skyscraper and then a loop around that will create a city!</p>
+           <br>
+           <h3 class="module-title">Rainbows 4 dayz</h3>
+           <p class="module-text">Here's a little taste of the Drone plugin and what it can do. Go to your in game prompt and type</p>
+           <pre>/js rainbow();</pre>
+           <p class="module-text">This should be the result.</p>
+           <img class="module-image" src="img/rainbow.png"/>
+           <br>
+           <br>
+           <h3 class="module-title">The Drone Object</h3>
+           <p class="module-text">First we need to construct a Drone Object. It's best to think of a Drone Object as an invisible block in Minecraft which lets you add code to manipulate it. This piece of code creates a Drone object and when it's called, it will create an invisible block two blocks in front of you.</p>  
+
+           <pre>var droneObject = new Drone(self);</pre>
+           <p class="module-text">Now, what happens if we add <code>.box(blocks.diamond_ore)</code> to the end of that variable?</p>
+           <img class="module-image" src="img/diamondblock.png"/>
+           <pre>/js var droneObject = new Drone(self).<strong>box(blocks.diamond_ore);</strong></pre>
+           <br>
+           <p class="module-text">The box method accepts 1 argument, but you can also give it a width, height, and length! <code>.box(blocks.BLOCK, w, h, l);</code>
+           <img class="module-image" src="img/diamondwall.png"/>    
+           <pre>/js var droneObject = new Drone(self).box(blocks.diamond_ore,<strong> 4, 10, 2</strong>);</pre>
+           <br>
+           <h3 class="module-title">Making Stuff Move</h3>
+           <p class="module-text">Now it's time to make stuff move. We can add <pre>.up()<br>.down()<br>.left()<br>.right()<br>.fwd()<br>.back()<br>.turn()</pre> to our drone object to move the location of it. We're basically moving the reference point! You can put a number larger than 1 in the parentheses to make the reference block move farther but the default is 1. The <code>.turn()</code> method turns our reference point 90 degrees clockwise!</p>
+           <img class="module-image" src="img/move.png"/>
+           <pre>/js var droneObject = new Drone(self).box(blocks.diamond_ore);<br>/js droneObject<strong>.fwd(2)</strong>.box(blocks.emerald_ore);</pre> 
+           <br> 
+           <h3 class="module-title">The Cylinder Method</h3>
+           <p class="module-text">The Cylinder method allows us to easily make cylinders. <code>.cylinder(blocks.BLOCK, radius, height);</code>
+           <br><br>
+           <img class="module-image" src="img/cylinder.png"/>
+           <pre>/js var droneObject = new Drone(self)<strong>.cylinder(blocks.ice, 7, 1);</strong></pre>
+           
+           <br>
+           <h3 class="module-title">The Exports Module</h3>
+           <p class="module-text">The Exports module lets us store our code inside callable functions from the Minecraft in-game prompt!<pre>var cowSound = function() { <br>    echo(self, "moooo");<br>};<br><strong>exports.cowSound = cowSound;</strong></pre>This code can now be called in game with <code>/js cowSound();</code></p>
+           <br>
+           <h3 class="module-title">The For Loop</h3>
+           <p class="module-text">The For loop is a handy tool which allows to loop a limited number of times. We need it to loop through each layer of the pokeball! A For loop looks like the following: <pre>for (<strong>initialization of counter variable; test condition; iterator of counter variable</strong>) { <br>    *do something*<br>}</pre>
+           <pre>for (<strong>var i = 0; i < 5; i++</strong>) {<br>    echo(self, "this loop has ran " i + 1 "times!");<br>}</pre>The For loop above will print out: "This loop has ran 1 times" "This loop has ran 2 times" ... up to 5!</p>
+           <p class="module-text">Now let's use a For loop in ScriptCraft!</p> 
+           <img class="module-image" src="img/for-loop.png"/>
+           <pre>var crazyBlocks = function() {<br>    var droneObject = new Drone(self);<br>    for (<strong>var i = 0; i < 6; i++</strong>) {<br>        droneObject.up(2).cylinder(blocks.iron, <strong>i</strong>, 1);<br>    }<br>};<br>exports.crazyBlocks = crazyBlocks;</pre>
+           <p class="module-text">Woah! This produces a pretty crazy result. The drone object doesn't center itself when we increase the radius in a for loop.</p>
+           <br>
+           <h3 class="module-title">Centering the Drone Object (Reference Point)</h3>
+           <p class="module-text">To center the drone object so that we can get a perfect sphere, we need to <code>.left().back()</code> when increasing the radius by 1 when moving up, and <code>.right().fwd()</code> when decreasing the radius by 1 when moving up.</p>
+           <img class="module-image" src="img/icecream.png"/>
+           <pre>var crazyBlocks = function() {<br>    var droneObject = new Drone(self);<br>    for (<strong>var i = 3; i < 8; i++</strong>) {<br>        droneObject.up(2).cylinder(<strong>blocks.wool.brown</strong>, <strong>i</strong>, 1)<strong>.left().back();</strong><br>    }<br>};<br>exports.crazyBlocks = crazyBlocks;</pre>
+           <p class="module-text">Sweet! We have now made an ice cream cone. It seems that there's a gap with each layer however, how would we get rid of that?!</p>
+           <img class="module-image" src="img/semisphere.png"/>
+           <p class="When you fix that gap you should get a semi sphere!"</p>
+           <br>
+           <h3 class="module-title">Finishing it off</h3>
+           <p class="module-text">You should now have enough knowledge to finish the challenge. You know how to make the bottom half of a sphere, and then you can add a single layer of cylinder for the middle and then another for loop for the top half. It's okay to manually place wool for the button of the pokeball but there's bonus points if you can code it in there.</p>
+           <p class="module-text">Also, to make the ball more "sphere-like", create a for loop for the bottom half, and then create a cylinder of that same bottom half color with the same size radius. Here's an example</p>
+           <img class="module-image" src="img/hemisphere.png"/>
+           <pre>var crazyBlocks = function() {<br>    var droneObject = new Drone(self);<br>    for (var i = 3; i < 8; i++) {<br>        droneObject.up().cylinder(blocks.wool.white, i, 1).left().back();<br>    }<br>    droneObject.up().fwd().right().cylinder(blocks.wool.white, <strong>END-RADIUS</strong>, 1);<br>    droneObject.up().cylinder(blocks.wool.black, <strong>END-RADIUS</strong>, 1);<br>};</pre>
+           <br>
+         </div>
+      </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
