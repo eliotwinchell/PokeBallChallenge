@@ -100,7 +100,7 @@
            <p class="module-text">You should now have enough knowledge to finish the challenge. You know how to make the bottom half of a sphere, and then you can add a single layer of cylinder for the middle and then another for loop for the top half. It's okay to manually place wool for the button of the pokeball but there's bonus points if you can code it in there.</p>
            <p class="module-text">Also, to make the ball more "sphere-like", create a for loop for the bottom half, and then create a cylinder of that same bottom half color with the same size radius. Here's an example</p>
            <img class="module-image" src="img/hemisphere.png"/>
-           <pre>var crazyBlocks = function() {<br>    var droneObject = new Drone(self);<br>    for (var i = 3; i < 8; i++) {<br>        droneObject.up().cylinder(blocks.wool.white, i, 1).left().back();<br>    }<br>    droneObject.up().fwd().right().cylinder(blocks.wool.white, <strong>END-RADIUS</strong>, 1);<br>    droneObject.up().cylinder(blocks.wool.black, <strong>END-RADIUS</strong>, 1);<br>};</pre>
+           <pre>var crazyBlocks = function() {<br>    var droneObject = new Drone(self);<br>    for (var i = 3; i < 8; i++) {<br>        droneObject.up().cylinder(blocks.wool.white, i, 1).left().back();<br>    }<br>    droneObject.up().fwd().right().cylinder(blocks.wool.white, <strong>END-RADIUS</strong>, 1);<br>    droneObject.up().cylinder(blocks.wool.black, <strong>END-RADIUS</strong>, 1);<br>};exports.crazyBlocks = crazyBlocks;</pre>
            <br>
          </div>
       </div>
